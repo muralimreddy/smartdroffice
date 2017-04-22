@@ -1,0 +1,24 @@
+info:
+  component: Zuul Server
+  
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  routes:
+    client-service: /clients/**
+    patient-service: /patients/**
+    zuulserver: /self/**
+
+server:
+  port: 8090
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
